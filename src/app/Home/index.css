@@ -1,0 +1,117 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #f9fbfe;
+}
+.responsive-con {
+  width: 100%;
+  max-width: 1200px;
+}
+.heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.create-task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px 0;
+}
+.create-task {
+  color: #4c63b6;
+  font-size: 20px;
+  font-weight: 700;
+}
+.create-task-subpart {
+  color: #000;
+  font-size: 20px;  
+  font-weight: 400;
+}
+.add-button {
+  color: #fff;
+  background-color: #4c63b6;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+.filter-heading {
+  margin: 15px 0;
+  font-size: 20px;  
+  font-weight: 500;
+}
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.task-status-btn {
+  color: #000;
+  background-color: #fff;
+  font-size: 16px;
+  border: solid 1px #000;
+  outline: none;
+  border-radius: 4px;
+  padding: 4px 14px;
+  cursor: pointer;
+}
+.active-task-status-btn  {
+  color: #fff;
+  background-color: #34a31e;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 4px 14px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .app-container {
+    padding: 30px 50px;
+  }
+  .heading {
+    font-size: 46px;
+  }
+  .create-task {
+    font-size: 24px;
+  }
+  .create-task-subpart {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .add-button {
+    font-size: 20px;
+  }
+  .create-task-container {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .filter-container {
+    justify-content: flex-start;
+  }
+  .task-status-btn {
+    font-size: 18px;
+  }
+  .active-task-status-btn {
+    font-size: 18px;
+  }
+}
