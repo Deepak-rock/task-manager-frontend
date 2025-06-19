@@ -1,10 +1,9 @@
-"use client";
-import HomePage from "./home/page";
+import Home from "./home/page";
 
 export default function Root() {
   return (
     <div>
-      <HomePage />
+      <Home />
     </div>
   );
 }

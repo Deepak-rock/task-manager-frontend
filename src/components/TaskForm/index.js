@@ -1,4 +1,5 @@
-import { useState } from "react";
+"use client";
+import {useState} from "react";
 import './index.css';
 
 const TaskForm = ({ onSubmit, initial = {} }) => {
