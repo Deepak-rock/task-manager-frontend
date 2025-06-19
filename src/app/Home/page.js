@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import { ClipLoader } from "react-spinners";
 import TaskCard from "@/components/TaskCard";
-import Link from "next/link";
+import {useRouter} from "next/navigation";
+
 import './index.css';
 
 const apiContants = {
@@ -40,11 +41,25 @@ const Home = () => {
     }
     return task.status === taskStatus;
   });
-  
-  
+
+  const deleteTask = async (id) => {
+    const apiUrl = `https://task-manager-backend-e6vm.onrender.com/tasks/${id}`;
+    const option = {
+      method: "DELETE"
+    }
+    await fetch(apiUrl, option);
+  }
+
+  const handleDelete = async (id) => {
+    await deleteTask(id);
+    setTasks(tasks.filter((t) => t.id !== id));
+  }
+
+  const router = useRouter();
+
   const renderApifailureView = () => (
     <div>
-      <h1>Unable Fetch Data</h1>
+      <h1>Unable Fetch Tasks</h1>
     </div>
   );
   
@@ -57,7 +72,7 @@ const Home = () => {
   const renderSuccessView = () => (
     <div className="tasks-container">
       {getFilterTask.map((task) => (
-        <TaskCard key={task.id} task={task} />
+        <TaskCard key={task.id} task={task} onDelete={handleDelete}/>
       ))}
     </div>
   );
@@ -84,15 +99,40 @@ const Home = () => {
           <p className="create-task">
             Create <span className="create-task-subpart">Task</span>
           </p>
-          <Link href="/add" className="add-button">+ Add Task</Link>
+          <button onClick={() => router.push("/add")} className="add-button">+ Add Task</button>
         </div>
 
         <h3 className="filter-heading">Filter by Task status</h3>
+
         <div className="filter-container">
-          <button className={taskStatus === "all" ? "active-task-status-btn" : "task-status-btn"} type="button" onClick={() => setTaskStatus('all')}>All</button>
-          <button className={taskStatus === "todo" ? "active-task-status-btn" : "task-status-btn"} type="button" onClick={() => setTaskStatus('todo')}>Todo</button>
-          <button className={taskStatus === "in_progress" ? "active-task-status-btn" : "task-status-btn"} type="button" onClick={() => setTaskStatus('in_progress')}>In Progress</button>
-          <button className={taskStatus === "done" ? "active-task-status-btn" : "task-status-btn"} type="button" onClick={() => setTaskStatus('done')}>Done</button>
+          <button 
+            className={taskStatus === "all" ? "active-task-status-btn" : "task-status-btn"} 
+            type="button" 
+            onClick={() => setTaskStatus('all')}
+          >
+            All
+          </button>
+          <button 
+            className={taskStatus === "todo" ? "active-task-status-btn" : "task-status-btn"} 
+            type="button" 
+            onClick={() => setTaskStatus('todo')}
+          >
+            Todo
+          </button>
+          <button 
+            className={taskStatus === "in_progress" ? "active-task-status-btn" : "task-status-btn"} 
+            type="button" 
+            onClick={() => setTaskStatus('in_progress')}
+          >
+            In Progress
+          </button>
+          <button 
+            className={taskStatus === "done" ? "active-task-status-btn" : "task-status-btn"} 
+            type="button" 
+            onClick={() => setTaskStatus('done')}
+          >
+            Done
+          </button>
         </div>
 
         {renderHomeTask()}

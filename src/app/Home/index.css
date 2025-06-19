@@ -84,6 +84,9 @@
   padding: 4px 14px;
   cursor: pointer;
 }
+.tasks-container {
+  margin-top: 20px; 
+}
 @media screen and (min-width: 768px) {
   .app-container {
     padding: 30px 50px;

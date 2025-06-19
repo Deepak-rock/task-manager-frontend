@@ -14,3 +14,18 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #f9fbfe;
+}
+.page-heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 500;
+  margin: 20px 0;
+}
